@@ -9,30 +9,31 @@
 
 namespace kartik\dialog;
 
-use yii\web\View;
 use kartik\base\AssetBundle;
 
 /**
- * Asset bundle that provides a polyfill for javascript native alert, confirm, and prompt boxes. The BootstrapDialog
- * will be used if available or needed, else the javascript native dialogs will be rendered.
+ * Asset bundle for Bootstrap 3 Dialog
  *
  * @author Kartik Visweswaran <kartikv2@gmail.com>
  * @since 1.0
  */
-class DialogAsset extends AssetBundle
+class DialogBootstrapAsset extends AssetBundle
 {
     /**
      * @inheritdoc
      */
-    public $jsOptions = ['position' => View::POS_HEAD];
+    public $depends = [
+        'kartik\base\PluginAssetBundle'
+    ];
 
     /**
      * @inheritdoc
      */
     public function init()
     {
-        $this->setSourcePath(__DIR__ . '/assets');
-        $this->setupAssets('js', ['js/dialog']);
+        $this->setSourcePath('@bower/bootstrap3-dialog');
+        $this->setupAssets('js', ['dist/js/bootstrap-dialog']);
+        $this->setupAssets('css', ['dist/css/bootstrap-dialog']);
         parent::init();
     }
 }

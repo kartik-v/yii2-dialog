@@ -1,5 +1,5 @@
 {
-    "name": "kartik-v/yii2-bootstrap-dialog",
+    "name": "kartik-v/yii2-dialog",
     "description": "An asset bundle for bootstrap3-dialog for Yii 2.0 framework.",
     "keywords": [
         "yii2",
@@ -9,7 +9,7 @@
         "dialog",
         "alert"
     ],
-    "homepage": "https://github.com/kartik-v/yii2-bootstrap-dialog",
+    "homepage": "https://github.com/kartik-v/yii2-dialog",
     "type": "yii2-extension",
     "license": "BSD-3-Clause",
     "authors": [
@@ -21,7 +21,7 @@
     ],
     "require": {
         "kartik-v/yii2-krajee-base": "~1.7",
-        "bower-asset/nakupanda/bootstrap3-dialog": "*"
+        "bower-asset/bootstrap3-dialog": "~1.34"
     },
     "autoload": {
         "psr-4": {
