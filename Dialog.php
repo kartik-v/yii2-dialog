@@ -52,7 +52,7 @@ class Dialog extends Widget
     const SIZE_LARGE = 'size-large';
 
     /**
-     * @var bool whether to use the native javascript dialog for rendering the popup prompts. If set to `true`, the
+     * @var bool whether to use the native javascript dialog for rendering the popup prompts. If set to `false`, the
      *     bootstrap3-dialog library will be used for rendering the prompts as a modal dialog
      */
     public $useNative = false;
