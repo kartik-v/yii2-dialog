@@ -1,7 +1,8 @@
 yii2-dialog
-=====================
+===========
 
-[![Latest Stable Version](https://poser.pugx.org/kartik-v/yii2-dialog/v/stable)](https://packagist.org/packages/kartik-v/yii2-dialog)
+[![Stable Version](https://poser.pugx.org/kartik-v/yii2-dialog/v/stable)](https://packagist.org/packages/kartik-v/yii2-dialog)
+[![Unstable Version](https://poser.pugx.org/kartik-v/yii2-dialog/v/unstable)](https://packagist.org/packages/kartik-v/yii2-dialog)
 [![License](https://poser.pugx.org/kartik-v/yii2-dialog/license)](https://packagist.org/packages/kartik-v/yii2-dialog)
 [![Total Downloads](https://poser.pugx.org/kartik-v/yii2-dialog/downloads)](https://packagist.org/packages/kartik-v/yii2-dialog)
 [![Monthly Downloads](https://poser.pugx.org/kartik-v/yii2-dialog/d/monthly)](https://packagist.org/packages/kartik-v/yii2-dialog)
@@ -40,6 +41,10 @@ or add
 
 to the ```require``` section of your `composer.json` file.
 
+## Documentation and Demo
+
+View the [documentation and demos](http://demos.krajee.com/dialog) at Krajee Yii 2 Demos for details on using the extension.
+
 ## Usage
 
 ### Basic Usage 
@@ -62,13 +67,13 @@ use kartik\dialog\Dialog;
 
 // Example 1
 echo Dialog::widget([
-   'id' => 'krajeeDialog',
+   'libName' => 'krajeeDialog',
    'options => [], // default options
 ]);
 
 // Example 2
 echo Dialog::widget([
-   'id' => 'krajeeDialogCust',
+   'libName' => 'krajeeDialogCust',
    'options => ['draggable' => true, 'closable' => true], // custom options
 ]);
 ```

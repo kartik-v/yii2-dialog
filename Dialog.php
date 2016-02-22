@@ -19,7 +19,7 @@ use yii\web\View;
  * confirm, and prompt dialog boxes.
  *
  * @author Kartik Visweswaran <kartikv2@gmail.com>
- * @since 1.8.2
+ * @since 1.0
  */
 class Dialog extends Widget
 {
@@ -66,7 +66,7 @@ class Dialog extends Widget
      * @var string the identifying name of the public javascript id that will hold the settings for KrajeeDialog
      *     javascript object instance. Defaults to `krajeeDialog`.
      */
-    public $name = self::LIBRARY;
+    public $libName = self::LIBRARY;
 
     /**
      * @var array the configuration options for the bootstrap dialog (applicable when `useNative` is `false`). You can
@@ -74,13 +74,13 @@ class Dialog extends Widget
      * ```
      * // Example 1
      * echo Dialog::widget([
-     *    'id' => 'krajeeDialog',
+     *    'libName' => 'krajeeDialog',
      *    'options => [], // default options
      * ]);
      *
      * // Example 2
      * echo Dialog::widget([
-     *    'id' => 'krajeeDialogCust',
+     *    'libName' => 'krajeeDialogCust',
      *    'options => ['draggable' => true, 'closable' => true], // custom options
      * ]);
      * ```
@@ -149,9 +149,9 @@ class Dialog extends Widget
         $promptDialog = $otherDialog = [
             'draggable' => false,
             'title' => $info,
-            'buttons' =>  [
-                ['label'=>$cancel, 'icon'=>self::ICON_CANCEL],
-                ['label'=>$ok, 'icon'=>self::ICON_OK, 'class'=>'btn-primary'],
+            'buttons' => [
+                ['label' => $cancel, 'icon' => self::ICON_CANCEL],
+                ['label' => $ok, 'icon' => self::ICON_OK, 'class' => 'btn-primary'],
             ]
         ];
         $otherDialog['draggable'] = true;
@@ -165,8 +165,8 @@ class Dialog extends Widget
             self::DIALOG_CONFIRM => [
                 'type' => self::TYPE_WARNING,
                 'title' => Yii::t('kvdialog', 'Confirmation'),
-                'btnOKClass' =>  'btn-warning',
-                'btnOKLabel' =>  $okLabel,
+                'btnOKClass' => 'btn-warning',
+                'btnOKLabel' => $okLabel,
                 'btnCancelLabel' => $cancelLabel
             ],
             self::DIALOG_PROMPT => $promptDialog,
@@ -194,6 +194,6 @@ class Dialog extends Widget
         $defaultsVar = self::LIBRARY . 'Defaults_' . hash('crc32', $defaults);
         $view->registerJs("var {$optsVar}={$opts};", View::POS_HEAD);
         $view->registerJs("var {$defaultsVar}={$defaults};", View::POS_HEAD);
-        $view->registerJs("var {$this->name}=new KrajeeDialog({$flag},{$optsVar},{$defaultsVar});", View::POS_HEAD);
+        $view->registerJs("var {$this->libName}=new KrajeeDialog({$flag},{$optsVar},{$defaultsVar});", View::POS_HEAD);
     }
 }
