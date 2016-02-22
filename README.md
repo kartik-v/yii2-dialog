@@ -8,7 +8,15 @@ yii2-dialog
 [![Monthly Downloads](https://poser.pugx.org/kartik-v/yii2-dialog/d/monthly)](https://packagist.org/packages/kartik-v/yii2-dialog)
 [![Daily Downloads](https://poser.pugx.org/kartik-v/yii2-dialog/d/daily)](https://packagist.org/packages/kartik-v/yii2-dialog)
 
-An extension that wraps and makes it easy to use [bootstrap3-dialog](http://nakupanda.github.io/bootstrap3-dialog/) for Yii Framework 2.0. The bootstrap3-dialog enables Bootstrap Modal to be used more monkey-friendly. Refer the [bootstrap3-dialog repo](https://github.com/nakupanda/bootstrap3-dialog) for details.
+A widget component for Yii Framework 2.0 to easily configure and initialize popup notification dialog boxes. It provides a polyfill for the native javascript alert, confirm, and prompt dialog boxes. It includes inbuilt support for rendering rich dialog boxes via [bootstrap3-dialog](http://nakupanda.github.io/bootstrap3-dialog/) which makes using Bootstrap's modal more monkey-friendly. The key features provided by the library are:
+
+- Control how you want to render JAVASCRIPT dialogs. Inbuilt quick support for following dialog types:
+    - ALERT dialog
+    - CONFIRM dialog
+    - PROMPT dialog
+    - CUSTOM dialog
+- Includes a jQuery plugin `krajeeDialog` (created by Krajee), that allows one to configure the bootstrap3-dialog library easily, or use the native JS alerting component, OR also configure any third party JS Notification Library to be used.
+- Advanced configuration via `kartik\dialog\Dialog` widget. This widget allows one to globally setup the native JS alert OR bootstrap3-dialog settings.
 
 ## Installation
 
