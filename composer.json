@@ -21,7 +21,7 @@
     ],
     "require": {
         "kartik-v/yii2-krajee-base": "~1.7",
-        "bower-asset/bootstrap3-dialog": "1.*"
+        "bower-asset/bootstrap3-dialog": ">=1.34"
     },
     "autoload": {
         "psr-4": {
