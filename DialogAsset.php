@@ -29,6 +29,11 @@ class DialogAsset extends AssetBundle
     /**
      * @inheritdoc
      */
+    public $depends = [];
+    
+    /**
+     * @inheritdoc
+     */
     public function init()
     {
         $this->setSourcePath(__DIR__ . '/assets');

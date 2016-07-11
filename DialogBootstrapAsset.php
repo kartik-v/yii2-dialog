@@ -8,7 +8,7 @@
  */
 
 namespace kartik\dialog;
-use kartik\base\AssetBundle;
+use kartik\base\PluginAssetBundle;
 
 /**
  * Asset bundle for Bootstrap 3 Dialog
@@ -16,14 +16,13 @@ use kartik\base\AssetBundle;
  * @author Kartik Visweswaran <kartikv2@gmail.com>
  * @since 1.0
  */
-class DialogBootstrapAsset extends AssetBundle
+class DialogBootstrapAsset extends PluginAssetBundle
 {
     /**
      * @inheritdoc
      */
     public function init()
     {
-        $this->depends = array_merge($this->depends, ['kartik\base\PluginAssetBundle']);
         $this->setSourcePath('@bower/bootstrap3-dialog');
         $this->setupAssets('js', ['dist/js/bootstrap-dialog']);
         $this->setupAssets('css', ['dist/css/bootstrap-dialog']);
