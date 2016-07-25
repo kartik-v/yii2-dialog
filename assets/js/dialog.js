@@ -2,7 +2,7 @@
  * @package   yii2-dialog
  * @author    Kartik Visweswaran <kartikv2@gmail.com>
  * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014 - 2016
- * @version   1.0.0
+ * @version   1.0.1
  *
  * Provides a polyfill for javascript native alert, confirm, and prompt boxes. The BootstrapDialog will be used if
  * available or needed, else the javascript native dialogs will be rendered.
