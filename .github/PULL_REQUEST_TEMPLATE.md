@@ -6,7 +6,8 @@ This pull request includes a
 - [ ] Translation
 
 ## Changes
-The following changes were made
+The following changes were made. This change is also updated in the 
+[CHANGE LOG](https://github.com/kartik-v/yii2-dialog/blob/master/CHANGE.md).
 
 -
 -
