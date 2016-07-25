@@ -1,6 +1,6 @@
-Contributing to yii2-grid
-=========================
-Looking to contribute something to yii2-grid? **Here's how you can help.**
+Contributing to yii2-dialog
+===========================
+Looking to contribute something to yii2-dialog? **Here's how you can help.**
 
 Please take a moment to review this document in order to make the contribution
 process easy and effective for everyone involved.
@@ -17,13 +17,13 @@ When [reporting bugs][reporting-bugs] or
 [issue tracker on GitHub][issue-tracker] is the recommended channel to use.
 
 The issue tracker **is not** a place for support requests. Refer the 
-[extension documentation and demos](http://demos.krajee.com/grid) and/or refer to the
+[extension documentation and demos](http://demos.krajee.com/dialog) and/or refer to the
 [webtips Q & A forum](http://webtips.krajee.com/questions) which are the better places to get help.
 
-Reporting bugs with yii2-grid
------------------------------
+Reporting bugs with yii2-dialog
+-------------------------------
 We really appreciate clear bug reports that _consistently_ show an issue
-_within yii2-grid_.
+_within yii2-dialog_.
 
 The ideal bug report follows these guidelines:
 
@@ -42,15 +42,15 @@ to are:
 - What is the bug and what is the expected outcome?
 - What browser(s) and Operating System have you tested with?
 - Does the bug happen consistently across all tested browsers?
-- What version of jQuery are you using? And what version of yii2-grid?
-- Are you using yii2-grid with other plugins?
+- What version of jQuery are you using? And what version of yii2-dialog?
+- Are you using yii2-dialog with other plugins?
 
 All of these questions will help others fix and identify any potential bugs.
 
-Requesting features in yii2-grid
+Requesting features in yii2-dialog
 ------------------------------------------
-Before starting work on a major feature for yii2-grid, **read the
-[documentation](http://demos.krajee.com/grid)  first** or you may risk spending a considerable amount of
+Before starting work on a major feature for yii2-dialog, **read the
+[documentation](http://demos.krajee.com/dialog)  first** or you may risk spending a considerable amount of
 time on something which the project developers are not interested in bringing into the project.
 
 ### Submitting a pull request
@@ -83,7 +83,7 @@ Anyone can help the project maintainers triage issues and review pull requests.
 
 ### Handling new issues
 
-yii2-grid regularly receives new issues which need to be tested and organized.
+yii2-dialog regularly receives new issues which need to be tested and organized.
 
 When a new issue that comes in that is similar to another existing issue, it
 should be checked to make sure it is not a duplicate.  Duplicates issues should
@@ -92,7 +92,7 @@ be marked by replying to the issue with "Duplicate of #[issue number]" where
 allow the project maintainers to quickly close off additional issues and keep
 the discussion focused within a single issue.
 
-If you can test issues that are reported to yii2-grid that contain test cases and
+If you can test issues that are reported to yii2-dialog that contain test cases and
 confirm under what conditions bugs happen, that will allow others to identify
 what causes a bug quicker.
 
@@ -115,12 +115,12 @@ developers, so keeping tickets up to date is encouraged.
 Licensing
 ---------
 
-It should also be made clear that **all code contributed to yii2-grid** must be
+It should also be made clear that **all code contributed to yii2-dialog** must be
 licensable under the [BSD-3 license][licensing].  Code that cannot be released
 under this license **cannot be accepted** into the project.
 
-[issue-search]: https://github.com/kartik-v/yii2-grid/search?q=&type=Issues
-[issue-tracker]: https://github.com/kartik-v/yii2-grid/issues
-[licensing]: https://github.com/kartik-v/yii2-grid/blob/master/LICENSE.md
-[reporting-bugs]: #reporting-bugs-with-yii2-grid
-[requesting-features]: #requesting-features-in-yii2-grid
+[issue-search]: https://github.com/kartik-v/yii2-dialog/search?q=&type=Issues
+[issue-tracker]: https://github.com/kartik-v/yii2-dialog/issues
+[licensing]: https://github.com/kartik-v/yii2-dialog/blob/master/LICENSE.md
+[reporting-bugs]: #reporting-bugs-with-yii2-dialog
+[requesting-features]: #requesting-features-in-yii2-dialog
