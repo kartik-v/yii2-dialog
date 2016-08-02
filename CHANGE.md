@@ -8,6 +8,7 @@ Change Log: `yii2-dialog`
 - (enh #3): Add Chinese Translations.
 - Add contribution templates.
 - (enh #4,#5): Add Ukranian Translations.
+- (enh #6): Add Polish Translations.
 
 ## Version 1.0.0
 
