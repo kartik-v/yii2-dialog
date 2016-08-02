@@ -17,8 +17,8 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Cancel' => '',
-    'Confirmation' => '',
-    'Information' => '',
-    'Ok' => '',
+    'Cancel' => 'Anuluj',
+    'Confirmation' => 'Potwierdzenie',
+    'Information' => 'Informacja',
+    'Ok' => 'Ok',
 ];
