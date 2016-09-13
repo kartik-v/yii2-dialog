@@ -15,111 +15,167 @@ use yii\helpers\Json;
 use yii\web\View;
 
 /**
- * Widget to easily configure and initialize the dialog settings and provide a polyfill for native javascript alert,
- * confirm, and prompt dialog boxes.
+ * Dialog widget allows an easy configuration to control javascript dialogs and also generate rich styled bootstrap
+ * modal dialogs using [bootstrap3-dialog](https://github.com/nakupanda/bootstrap3-dialog) plugin. The widget provides
+ * its own advanced javascript library `KrajeeDialog` that acts a polyfill for the native javascript alert, confirm, and
+ * prompt dialog boxes.
+ *
+ * **Example 1: ** Usage for a default dialog.
+ *
+ * ```php
+ * echo Dialog::widget([
+ *    'libName' => 'krajeeDialog',
+ *    'options => [], // default options
+ * ]);
+ *```
+ *
+ * **Example 2: ** Usage for a customized dialog.
+ *
+ * ```php
+ * echo Dialog::widget([
+ *    'libName' => 'krajeeDialogCust',
+ *    'options => ['draggable' => true, 'closable' => true], // custom options
+ * ]);
+ * ```
+ *
+ * Then you can use your own javascript as shown below to render your alert, confirm, and prompt boxes:
+ *
+ * ```js
+ * // use krajeeDialog object instance
+ * $('#btn-1').on('click', function() {
+ *     krajeeDialog.alert('An alert');
+ *     // or show a confirm
+ *     krajeeDialog.confirm('Are you sure', function(out){
+ *         if(out) {
+ *             alert('Yes'); // or do something on confirmation
+ *         }
+ *     });
+ *
+ * });
+ *
+ * // use krajeeDialogCust object instance
+ * $('#btn-2').on('click', function() {
+ *     krajeeDialogCust.alert('An alert');
+ *     // or show a prompt
+ *     krajeeDialogCust.prompt({label:'Provide reason', placeholder:'Upto 30 characters...'}, function(out){
+ *         if (out) {
+ *             alert('Yes'); // or do something based on the value of out
+ *         }
+ *     });
+ *
+ * });
+ * ```
  *
  * @author Kartik Visweswaran <kartikv2@gmail.com>
  * @since 1.0
  */
 class Dialog extends Widget
 {
-    // Krajee JS dialog library
+    /**
+     * Krajee JS dialog library class name.
+     */
     const LIBRARY = 'krajeeDialog';
-
-    // icons
+    /**
+     * Icon CSS to be added for the OK button in the dialog.
+     */
     const ICON_OK = 'glyphicon glyphicon-ok';
+    /**
+     * Icon CSS to be added for the CANCEL button in the dialog.
+     */
     const ICON_CANCEL = 'glyphicon glyphicon-ban-circle';
+    /**
+     * Icon CSS to be added for the SPINNER button in the dialog.
+     */
     const ICON_SPINNER = 'glyphicon glyphicon-asterisk';
-
-    // dialog methods
+    /**
+     * Alert method name in the KrajeeDialog JS class.
+     */
     const DIALOG_ALERT = 'alert';
+    /**
+     * Confirm method name in the KrajeeDialog JS class.
+     */
     const DIALOG_CONFIRM = 'confirm';
+    /**
+     * Prompt method name in the KrajeeDialog JS class.
+     */
     const DIALOG_PROMPT = 'prompt';
+    /**
+     * Other dialog method name in the KrajeeDialog JS class.
+     */
     const DIALOG_OTHER = 'dialog';
-
-    // bootstrap contextual types
+    /**
+     * The **default** bootstrap contextual color type.
+     */
     const TYPE_DEFAULT = 'type-default';
-    const TYPE_INFO = 'type-info';
+    /**
+     * The **primary** bootstrap contextual color type.
+     */
     const TYPE_PRIMARY = 'type-primary';
-    const TYPE_SUCCESS = 'type-success';
-    const TYPE_WARNING = 'type-warning';
+    /**
+     * The **information** bootstrap contextual color type.
+     */
+    const TYPE_INFO = 'type-info';
+    /**
+     * The **danger** bootstrap contextual color type.
+     */
     const TYPE_DANGER = 'type-danger';
-
-    // bootstrap sizes
+    /**
+     * The **warning** bootstrap contextual color type.
+     */
+    const TYPE_WARNING = 'type-warning';
+    /**
+     * The **success** bootstrap contextual color type.
+     */
+    const TYPE_SUCCESS = 'type-success';
+    /**
+     * Bootstrap **normal** modal dialog size.
+     */
     const SIZE_NORMAL = 'size-normal';
+    /**
+     * Bootstrap **small** modal dialog size.
+     */
     const SIZE_SMALL = 'size-small';
-    const SIZE_WIDE = 'size-wide'; // size-wide is equal to modal-lg
+    /**
+     * Bootstrap **large** modal dialog size.
+     */
     const SIZE_LARGE = 'size-large';
+    /**
+     * Bootstrap **wide** modal dialog size. The `size-wide` is equal to bootstrap `modal-lg` size.
+     */
+    const SIZE_WIDE = 'size-wide';
 
     /**
-     * @var bool whether to use the native javascript dialog for rendering the popup prompts. If set to `false`, the
-     *     bootstrap3-dialog library will be used for rendering the prompts as a modal dialog
+     * @var boolean whether to use the native javascript dialog for rendering the popup prompts. If set to `false`, the
+     * bootstrap3-dialog library will be used for rendering the prompts as a modal dialog.
      */
     public $useNative = false;
 
     /**
-     * @var bool whether to show a draggable cursor for draggable dialog boxes when dragging
+     * @var boolean whether to show a draggable cursor for draggable dialog boxes when dragging.
      */
     public $showDraggable = true;
 
     /**
      * @var string the identifying name of the public javascript id that will hold the settings for KrajeeDialog
-     *     javascript object instance. Defaults to `krajeeDialog`.
+     * javascript object instance. Defaults to `krajeeDialog`.
      */
     public $libName = self::LIBRARY;
 
     /**
-     * @var array the configuration options for the bootstrap dialog (applicable when `useNative` is `false`). You can
-     *     set the configuration settings as key value pairs that can be recognized by the BootstrapDialog plugin.
-     * ```
-     * // Example 1
-     * echo Dialog::widget([
-     *    'libName' => 'krajeeDialog',
-     *    'options => [], // default options
-     * ]);
-     *
-     * // Example 2
-     * echo Dialog::widget([
-     *    'libName' => 'krajeeDialogCust',
-     *    'options => ['draggable' => true, 'closable' => true], // custom options
-     * ]);
-     * ```
-     *
-     * Then you can use your own javascript as shown below to render your alert, confirm, and prompt boxes:
-     *
-     * ```
-     *      // use krajeeDialog object instance
-     *      $('#btn-1').on('click', function() {
-     *          krajeeDialog.alert('An alert');
-     *          // or show a confirm
-     *          krajeeDialog.confirm('Are you sure', function(out){
-     *              if(out) {
-     *                  alert('Yes'); // or do something on confirmation
-     *              }
-     *          });
-     *
-     *      });
-     *
-     *      // use krajeeDialogCust object instance
-     *      $('#btn-2').on('click', function() {
-     *          krajeeDialogCust.alert('An alert');
-     *          // or show a prompt
-     *          krajeeDialogCust.prompt({label:'Provide reason', placeholder:'Upto 30 characters...'}, function(out){
-     *              if (out) {
-     *                  alert('Yes'); // or do something based on the value of out
-     *              }
-     *          });
-     *
-     *      });
-     * ```
-     *
+     * @var array the configuration options for the bootstrap dialog (applicable when [[useNative]] is `false`). You can
+     * set the configuration settings as key value pairs that can be recognized by the BootstrapDialog plugin.
      */
     public $options = [];
 
     /**
-     * @var array the default dialog settings for alert, confirm, and prompt
+     * @var array the default dialog settings for alert, confirm, and prompt.
      */
     public $dialogDefaults = [];
+
+    /**
+     * @var integer the registration position for the Krajee dialog JS client code.
+     */
+    public $jsPosition = View::POS_HEAD;
 
     /**
      * @inheritdoc
@@ -137,7 +193,7 @@ class Dialog extends Widget
     }
 
     /**
-     * Initialize the buttons
+     * Initialize the dialog buttons.
      */
     public function initOptions()
     {
@@ -175,7 +231,7 @@ class Dialog extends Widget
     }
 
     /**
-     * Registers the dialog client assets
+     * Registers the client assets for [[Dialog]] widget.
      */
     public function registerAssets()
     {
@@ -192,8 +248,9 @@ class Dialog extends Widget
         $optsVar = self::LIBRARY . '_' . hash('crc32', $opts);
         $defaults = Json::encode($this->dialogDefaults);
         $defaultsVar = self::LIBRARY . 'Defaults_' . hash('crc32', $defaults);
-        $view->registerJs("var {$optsVar}={$opts};", View::POS_HEAD);
-        $view->registerJs("var {$defaultsVar}={$defaults};", View::POS_HEAD);
-        $view->registerJs("var {$this->libName}=new KrajeeDialog({$flag},{$optsVar},{$defaultsVar});", View::POS_HEAD);
+        $pos = $this->jsPosition;
+        $view->registerJs("var {$optsVar}={$opts};", $pos);
+        $view->registerJs("var {$defaultsVar}={$defaults};", $pos);
+        $view->registerJs("var {$this->libName}=new KrajeeDialog({$flag},{$optsVar},{$defaultsVar});", $pos);
     }
 }
