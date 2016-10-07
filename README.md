@@ -82,7 +82,7 @@ echo Dialog::widget([
 // Example 2
 echo Dialog::widget([
    'libName' => 'krajeeDialogCust',
-   'options => ['draggable' => true, 'closable' => true], // custom options
+   'options' => ['draggable' => true, 'closable' => true], // custom options
 ]);
 ```
 
