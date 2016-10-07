@@ -76,7 +76,7 @@ use kartik\dialog\Dialog;
 // Example 1
 echo Dialog::widget([
    'libName' => 'krajeeDialog',
-   'options => [], // default options
+   'options' => [], // default options
 ]);
 
 // Example 2
