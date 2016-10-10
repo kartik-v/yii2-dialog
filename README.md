@@ -76,13 +76,13 @@ use kartik\dialog\Dialog;
 // Example 1
 echo Dialog::widget([
    'libName' => 'krajeeDialog',
-   'options => [], // default options
+   'options' => [], // default options
 ]);
 
 // Example 2
 echo Dialog::widget([
    'libName' => 'krajeeDialogCust',
-   'options => ['draggable' => true, 'closable' => true], // custom options
+   'options' => ['draggable' => true, 'closable' => true], // custom options
 ]);
 ```
 
