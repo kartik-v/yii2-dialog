@@ -1,6 +1,12 @@
 Change Log: `yii2-dialog`
 ===================================
 
+## Version 1.0.2
+
+**Date:** 01-Dec-2016
+
+- Enhance KrajeeDialog variables to be registered in global namespace.
+
 ## Version 1.0.1
 
 **Date:** 13-Sep-2016

@@ -4,7 +4,7 @@
  * @package   yii2-dialog
  * @author    Kartik Visweswaran <kartikv2@gmail.com>
  * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2015 - 2016
- * @version   1.0.1
+ * @version   1.0.2
  */
 
 namespace kartik\dialog;
