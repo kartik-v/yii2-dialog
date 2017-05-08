@@ -18,7 +18,7 @@
  */
 return [
     'Cancel' => '取消',
-    'Confirmation' => '确认提示',
+    'Confirmation' => '確認提示',
     'Information' => '信息提示',
-    'Ok' => '确定',
+    'Ok' => '確定',
 ];
