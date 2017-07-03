@@ -45,7 +45,7 @@ var KrajeeDialog;
         },
         getOpts: function (type) {
             var self = this;
-            return window.jQuery.extend({}, self.defaults[type], self.options);
+            return window.jQuery.extend({}, self.defaults[type], self.options[type]);
         },
         _dialog: function (type, message, callback) {
             var self = this, opts, out;
