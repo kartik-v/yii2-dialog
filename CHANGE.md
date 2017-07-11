@@ -1,6 +1,11 @@
 Change Log: `yii2-dialog`
 ===================================
 
+## Version 1.0.3
+
+**Date** 03-Jul-2017
+- Fixed accept custom options for dialog
+
 ## Version 1.0.2
 
 **Date:** 01-Dec-2016
