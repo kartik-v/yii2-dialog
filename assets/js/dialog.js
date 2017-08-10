@@ -72,10 +72,11 @@ var KrajeeDialog;
                 window.BootstrapDialog.show(opts);
             }
         },
-        alert: function (message) {
+        alert: function (message, callback) {
             var self = this, opts = self.getOpts('alert');
             if (self.usePlugin()) {
                 opts.message = message;
+                opts.callback = callback;
                 window.BootstrapDialog.alert(opts);
             } else {
                 window.alert(message);
