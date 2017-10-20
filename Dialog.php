@@ -3,8 +3,8 @@
 /**
  * @package   yii2-dialog
  * @author    Kartik Visweswaran <kartikv2@gmail.com>
- * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014 - 2016
- * @version   1.0.3
+ * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014 - 2017
+ * @version   1.0.2
  */
 
 namespace kartik\dialog;
@@ -156,6 +156,12 @@ class Dialog extends Widget
     public $showDraggable = true;
 
     /**
+     * @var boolean whether to override the yii javascript confirmation dialog (set via `data-confirm`)
+     * with KrajeeDialog confirmation dialog.
+     */
+    public $overrideYiiConfirm = true;
+
+    /**
      * @var string the identifying name of the public javascript id that will hold the settings for KrajeeDialog
      * javascript object instance. Defaults to `krajeeDialog`.
      */
@@ -207,7 +213,7 @@ class Dialog extends Widget
             'title' => $info,
             'buttons' => [
                 ['label' => $cancel, 'icon' => self::ICON_CANCEL],
-                ['label' => $ok, 'icon' => self::ICON_OK, 'class' => 'btn-primary'],
+                ['label' => $ok, 'icon' => self::ICON_OK, 'cssClass' => 'btn-primary'],
             ]
         ];
         $otherDialog['draggable'] = true;
@@ -255,5 +261,9 @@ class Dialog extends Widget
         window.{$this->libName}=new KrajeeDialog({$flag},{$optsVar},{$defaultsVar});
 JS;
         $view->registerJs($script, $pos);
+        if ($this->overrideYiiConfirm) {
+            DialogYiiAsset::register($view);
+            $view->registerJs("krajeeYiiConfirm('{$this->libName}');");
+        }
     }
 }

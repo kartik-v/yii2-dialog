@@ -8,24 +8,33 @@
  */
 
 namespace kartik\dialog;
-use kartik\base\PluginAssetBundle;
+
+use yii\web\View;
+use kartik\base\AssetBundle;
 
 /**
- * Asset bundle for Bootstrap 3 Dialog
+ * Asset bundle that overrides Yii's default confirm dialog
  *
  * @author Kartik Visweswaran <kartikv2@gmail.com>
  * @since 1.0
  */
-class DialogBootstrapAsset extends PluginAssetBundle
+class DialogYiiAsset extends AssetBundle
 {
+    /**
+     * @inheritdoc
+     */
+    public $depends = [
+        'yii\web\YiiAsset',
+        'kartik\dialog\DialogAsset',
+    ];
+    
     /**
      * @inheritdoc
      */
     public function init()
     {
-        $this->setSourcePath('@bower/bootstrap3-dialog');
-        $this->setupAssets('js', ['dist/js/bootstrap-dialog']);
-        $this->setupAssets('css', ['dist/css/bootstrap-dialog']);
+        $this->setSourcePath(__DIR__ . '/assets');
+        $this->setupAssets('js', ['js/dialog-yii']);
         parent::init();
     }
 }
