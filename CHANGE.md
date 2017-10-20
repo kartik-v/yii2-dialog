@@ -11,6 +11,7 @@ Change Log: `yii2-dialog`
 - (enh #22): Add callback to alert
 - (enh #21): Fixed accept custom options for dialog
 - (enh #20): Add Italian translations
+- (enh #19): Allow all input attributes to be set for prompt input
 - (enh #17): Add Traditional Chinese translations
 - (enh #16): Add Turkish translations
 - (enh #15): Add Portugese Brazilian translations

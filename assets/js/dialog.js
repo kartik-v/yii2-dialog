@@ -93,7 +93,7 @@ var KrajeeDialog;
         },
         bdPrompt: function (input, callback) {
             var self = this, msg = '', opts = self.getOpts('prompt'), cbOk, cbCancel, defaultButtons,
-                buttons, holder = '', i;
+                buttons, $inputDiv, $input, attr = '', i;
             cbOk = function (dialog) {
                 var data, $body = dialog.getModalBody();
                 data = $body.find("input")[0].value || '';
@@ -110,13 +110,29 @@ var KrajeeDialog;
             ];
             buttons = opts.buttons || [];
             if (typeof input === "object") {
+                $inputDiv = $(document.createElement('div'));
+                $input = $(document.createElement('input'));
+                if (input['name'] === undefined) {
+                    $input.attr('name', 'krajee-dialog-prompt');
+                }
+                if (input['type'] === undefined) {
+                    $input.attr('type', 'text');
+                }
+                if (input['class'] === undefined) {
+                    $input.addClass('form-control');
+                }
+                $.each(input, function(key, val) {
+                    if (key !== 'label') {
+                        $input.attr(key, val);
+                    }
+                });
                 if (input.label !== undefined) {
-                    msg = '<label for="krajee-dialog-prompt" class="control-label">' + input.label + '</label>';
+                    msg = '<label for="' + $input.attr('name') + '" class="control-label">' + input.label + '</label>';
                 }
-                if (input.placeholder !== undefined) {
-                    holder = ' placeholder="' + input.placeholder + '"';
-                }
-                msg += '<input type="text" name="krajee-dialog-prompt" class="form-control"' + holder + '>';
+                $inputDiv.append($input);
+                msg += $inputDiv.html();
+                $input.remove();
+                $inputDiv.remove();
             } else {
                 msg = input;
             }
