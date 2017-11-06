@@ -2,7 +2,7 @@
  * @package   yii2-dialog
  * @author    Kartik Visweswaran <kartikv2@gmail.com>
  * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014 - 2017
- * @version   1.0.2
+ * @version   1.0.3
  *
  * Override Yii confirmation dialog with Krajee Dialog.
  *

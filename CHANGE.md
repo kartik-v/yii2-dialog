@@ -1,6 +1,14 @@
 Change Log: `yii2-dialog`
 ===================================
 
+## Version 1.0.3
+
+**Date:** 06-Nov-2017
+
+- Update contribution templates
+- (enh #30): Enhance and fix dialog JS options initialization
+- (enh #29): Add Hungarian translations
+
 ## Version 1.0.2
 
 **Date:** 20-Oct-2017

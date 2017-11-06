@@ -19,6 +19,10 @@ A widget component for Yii Framework 2.0 to easily configure and initialize popu
 - Ability to render pretty dialogs by overriding and enhancing confirmation dialog for links that use yii's `data-confirm` methods.
 - Advanced configuration via `kartik\dialog\Dialog` widget. This widget allows one to globally setup the native JS alert OR bootstrap3-dialog settings.
 
+How to contribute via a pull request?
+-------------------------------------
+Refer this [git workflow for contributors](.github/GIT-WORKFLOW.md).
+
 ## Installation
 
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).

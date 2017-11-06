@@ -4,7 +4,7 @@
  * @package   yii2-dialog
  * @author    Kartik Visweswaran <kartikv2@gmail.com>
  * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014 - 2017
- * @version   1.0.2
+ * @version   1.0.3
  */
 
 namespace kartik\dialog;
@@ -255,12 +255,9 @@ class Dialog extends Widget
         $defaults = Json::encode($this->dialogDefaults);
         $defaultsVar = self::LIBRARY . 'Defaults_' . hash('crc32', $defaults);
         $pos = $this->jsPosition;
-        $script = <<< JS
-        window.{$optsVar}={$opts};
-        window.{$defaultsVar}={$defaults};
-        window.{$this->libName}=new KrajeeDialog({$flag},{$optsVar},{$defaultsVar});
-JS;
-        $view->registerJs($script, $pos);
+        $view->registerJs("var {$defaultsVar} = {$defaults};", $pos);
+        $view->registerJs("var {$optsVar} = {$opts};", $pos);
+        $view->registerJs("var {$this->libName}=new KrajeeDialog({$flag},{$optsVar},{$defaultsVar});", $pos);
         if ($this->overrideYiiConfirm) {
             DialogYiiAsset::register($view);
             $view->registerJs("krajeeYiiConfirm('{$this->libName}');");
