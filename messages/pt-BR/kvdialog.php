@@ -18,7 +18,7 @@
  */
 return [
     'Cancel' => 'Cancelar',
-    'Confirmation' => 'Confirmar',
+    'Confirmation' => 'Confirmação',
     'Information' => 'Informação',
     'Ok' => 'Ok',
 ];
