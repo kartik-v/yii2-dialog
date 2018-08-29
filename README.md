@@ -38,6 +38,9 @@ kartik-v/yii2-dialog: "@dev"
 
 Read this [web tip /wiki](http://webtips.krajee.com/setting-composer-minimum-stability-application/) on setting the `minimum-stability` settings for your application's composer.json.
 
+### Release Changes
+Refer the [CHANGE LOG](https://github.com/kartik-v/yii2-dialog/blob/master/CHANGE.md) for details of various releases.
+
 ### Install
 
 Either run

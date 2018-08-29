@@ -20,12 +20,11 @@
         }
     ],
     "require": {
-        "kartik-v/yii2-krajee-base": "~1.7",
-        "bower-asset/bootstrap3-dialog": "~1.34"
+        "kartik-v/yii2-krajee-base": "~1.9"
     },
     "autoload": {
         "psr-4": {
-            "kartik\\dialog\\": ""
+            "kartik\\dialog\\": "src"
         }
     },
     "extra": {
