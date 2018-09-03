@@ -215,9 +215,9 @@ class Dialog extends Widget
     {
         $isBs4 = $this->isBs4();
         $defaultBtnCss = $isBs4 ? 'btn-outline-secondary' : 'btn-default';
-        $this->iconOk = $isBs4 ? 'glyphicon glyphicon-ok' : 'fas fa-check';
-        $this->iconCancel = $isBs4 ? 'glyphicon glyphicon-ban-circle' : 'fas fa-ban';
-        $this->iconSpinner = $isBs4 ? 'glyphicon glyphicon-asterisk' : 'fas fa-asterisk';
+        $this->iconOk = $isBs4 ? 'fas fa-check' : 'glyphicon glyphicon-ok';
+        $this->iconCancel = $isBs4 ? 'fas fa-ban' : 'glyphicon glyphicon-ban-circle';
+        $this->iconSpinner = $isBs4 ? 'fas fa-asterisk' : 'glyphicon glyphicon-asterisk';
         $ok = Yii::t('kvdialog', 'Ok');
         $cancel = Yii::t('kvdialog', 'Cancel');
         $info = Yii::t('kvdialog', 'Information');
