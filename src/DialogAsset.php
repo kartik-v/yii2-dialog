@@ -31,6 +31,7 @@ class DialogAsset extends AssetBundle
      */
     public function init()
     {
+        $this->jsOptions = ['position' => View::POS_HEAD];
         $this->setSourcePath(__DIR__ . '/assets');
         $this->setupAssets('js', ['js/dialog']);
         parent::init();

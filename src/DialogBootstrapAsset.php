@@ -23,6 +23,7 @@ class DialogBootstrapAsset extends PluginAssetBundle
      */
     public function init()
     {
+        $this->depends = array_merge(['kartik\dialog\DialogAsset'], $this->depends);
         $this->setSourcePath(__DIR__ . '/assets');
         $this->setupAssets('js', ['js/bootstrap-dialog']);
         $this->setupAssets('css', ['css/bootstrap-dialog-bs' . ($this->isBs4() ? '4' : '3')]);

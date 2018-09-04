@@ -24,10 +24,10 @@ class DialogYiiAsset extends AssetBundle
      * @inheritdoc
      */
     public $depends = [
-        'yii\web\YiiAsset',
         'kartik\dialog\DialogAsset',
+        'yii\web\YiiAsset',
     ];
-    
+
     /**
      * @inheritdoc
      */

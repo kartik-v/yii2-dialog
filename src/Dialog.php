@@ -188,7 +188,7 @@ class Dialog extends Widget
     /**
      * @var integer the registration position for the Krajee dialog JS client code.
      */
-    public $jsPosition = View::POS_READY;
+    public $jsPosition = View::POS_HEAD;
 
     /**
      * @inheritdoc
