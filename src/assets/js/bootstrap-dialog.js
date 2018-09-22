@@ -229,9 +229,9 @@
     BootstrapDialog.SIZE_WIDE = 'size-wide';
     BootstrapDialog.BUTTON_SIZES = {};
     BootstrapDialog.BUTTON_SIZES[BootstrapDialog.SIZE_NORMAL] = '';
-    BootstrapDialog.BUTTON_SIZES[BootstrapDialog.SIZE_SMALL] = 'btn-small';
+    BootstrapDialog.BUTTON_SIZES[BootstrapDialog.SIZE_SMALL] = 'btn-sm';
     BootstrapDialog.BUTTON_SIZES[BootstrapDialog.SIZE_LARGE] = 'btn-lg';
-    BootstrapDialog.BUTTON_SIZES[BootstrapDialog.SIZE_WIDE] = 'btn-block';
+    BootstrapDialog.BUTTON_SIZES[BootstrapDialog.SIZE_WIDE] = '';
     BootstrapDialog.ICON_SPINNER = 'glyphicon glyphicon-asterisk';
     BootstrapDialog.BUTTONS_ORDER_CANCEL_OK = 'btns-order-cancel-ok';
     BootstrapDialog.BUTTONS_ORDER_OK_CANCEL = 'btns-order-ok-cancel';

@@ -4,7 +4,7 @@
  * @package   yii2-dialog
  * @author    Kartik Visweswaran <kartikv2@gmail.com>
  * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014 - 2018
- * @version   1.0.4
+ * @version   1.0.5
  */
 
 namespace kartik\dialog;
@@ -169,7 +169,7 @@ class Dialog extends Widget
      * @var boolean (DEPRECATED) applicable only for versions v1.0.3 and below, where if set to `true` 
      * will enable a draggable cursor for draggable dialog boxes when dragging.
      *
-     * for v1.0.4 and above the cursor will always be displayed irrespective of this setting 
+     * for v1.0.5 and above the cursor will always be displayed irrespective of this setting 
      * (which can be controlled via CSS).
      */
     public $showDraggable = true;

@@ -1,12 +1,20 @@
 Change Log: `yii2-dialog`
 ===================================
 
+## Version 1.0.5
+
+**Date:** 23-Sep-2018
+
+- (enh #36): Enhancement to button styling for `Dialog::SIZE_WIDE`.
+- CSS Enhancements for Bootstrap 4.x
+
 ## Version 1.0.4
 
 **Date:** 07-Sep-2018
 
 - Enhancements to support Bootstrap v4.x.
 - Move all source code to `src` directory.
+- (enh #34): Update Persian Translations
 
 ## Version 1.0.3
 
