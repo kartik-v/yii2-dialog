@@ -1,10 +1,11 @@
 Change Log: `yii2-dialog`
-===================================
+=========================
 
 ## Version 1.0.5
 
-**Date:** 23-Sep-2018
+**Date:** 09-Oct-2018
 
+- Update composer dependencies.
 - (enh #36): Enhancement to button styling for `Dialog::SIZE_WIDE`.
 - CSS Enhancements for Bootstrap 4.x
 
