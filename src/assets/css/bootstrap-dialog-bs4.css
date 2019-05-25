@@ -86,6 +86,10 @@
     background-color: #343a40;
 }
 
+.bootstrap-dialog-footer-buttons {
+    text-align: right;
+}
+
 .bootstrap-dialog-footer-buttons > :not(:last-child) {
     margin-right: .25rem;
 }
