@@ -1,20 +1,25 @@
 /*!
  * @package   yii2-dialog
  * @author    Kartik Visweswaran <kartikv2@gmail.com>
- * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014 - 2018
- * @version   1.0.5
+ * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014 - 2021
+ * @version   1.0.6
  *
  * Bootstrap 4.x styling for bootstrap-dialog plugin.
  *
  * For more JQuery plugins visit http://plugins.krajee.com
  * For more Yii related demos visit http://demos.krajee.com
  */
-.bootstrap-dialog {
-}
-
 .bootstrap-dialog .modal-header {
     border-top-left-radius: 0.25rem;
     border-top-right-radius: 0.25rem;
+}
+
+.bootstrap-dialog .btn-modal-close {
+    padding: 0 5px;
+    margin: -5px;
+    background: none;
+    border: none;
+    border-radius: 50%;
 }
 
 .bootstrap-dialog .modal-header.bootstrap-dialog-draggable {
@@ -22,7 +27,6 @@
 }
 
 .bootstrap-dialog .bootstrap-dialog-title {
-    color: #fff;
     display: inline-block;
 }
 
@@ -52,38 +56,6 @@
 
 .bootstrap-dialog.type-default .bootstrap-dialog-title {
     color: #333;
-}
-
-.bootstrap-dialog.type-info .modal-header {
-    background-color: #17a2b8;
-}
-
-.bootstrap-dialog.type-primary .modal-header {
-    background-color: #007bff;
-}
-
-.bootstrap-dialog.type-secondary .modal-header {
-    background-color: #6c757d;
-}
-
-.bootstrap-dialog.type-success .modal-header {
-    background-color: #28a745;
-}
-
-.bootstrap-dialog.type-warning .modal-header {
-    background-color: #ffc107;
-}
-
-.bootstrap-dialog.type-danger .modal-header {
-    background-color: #dc3545;
-}
-
-.bootstrap-dialog.type-light .modal-header {
-    background-color: #f8f9fa;
-}
-
-.bootstrap-dialog.type-dark .modal-header {
-    background-color: #343a40;
 }
 
 .bootstrap-dialog-footer-buttons {

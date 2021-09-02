@@ -18,7 +18,11 @@
 [![Monthly Downloads](https://poser.pugx.org/kartik-v/yii2-dialog/d/monthly)](https://packagist.org/packages/kartik-v/yii2-dialog)
 [![Daily Downloads](https://poser.pugx.org/kartik-v/yii2-dialog/d/daily)](https://packagist.org/packages/kartik-v/yii2-dialog)
 
-A widget component for Yii Framework 2.0 to easily configure and initialize popup notification dialog boxes. It provides a polyfill for the native javascript alert, confirm, and prompt dialog boxes. It includes inbuilt support for rendering rich dialog boxes via [bootstrap3-dialog](http://nakupanda.github.io/bootstrap3-dialog/) which makes using Bootstrap's modal more monkey-friendly. The key features provided by the library are:
+A widget component for Yii Framework 2.0 to easily configure and initialize popup notification dialog boxes. It provides a polyfill for 
+the native javascript alert, confirm, and prompt dialog boxes. It includes inbuilt support for rendering rich dialog boxes via a customized 
+plugin by Krajee based on and enhanced from [bootstrap3-dialog](http://nakupanda.github.io/bootstrap3-dialog/). This plugin makes using Bootstrap's 
+modal more monkey-friendly. The Krajee enhancements also includes enhanced support for Bootstrap 5.x, 4.x and 3.x. The key features provided by 
+the library are:
 
 - Control how you want to render JAVASCRIPT dialogs. Inbuilt quick support for following dialog types:
     - ALERT dialog
@@ -38,7 +42,7 @@ Refer this [git workflow for contributors](.github/GIT-WORKFLOW.md).
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
 
 ### Pre-requisites
-> Note: Check the [composer.json](https://github.com/kartik-v/yii2-dropdown-x/blob/master/composer.json) for this extension's requirements and dependencies. 
+> Note: Check the [composer.json](https://github.com/kartik-v/yii2-dialog/blob/master/composer.json) for this extension's requirements and dependencies. 
 You must set the `minimum-stability` to `dev` in the **composer.json** file in your application root folder before installation of this extension OR
 if your `minimum-stability` is set to any other value other than `dev`, then set the following in the require section of your composer.json file
 

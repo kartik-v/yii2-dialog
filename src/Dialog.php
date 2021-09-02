@@ -3,14 +3,17 @@
 /**
  * @package   yii2-dialog
  * @author    Kartik Visweswaran <kartikv2@gmail.com>
- * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014 - 2018
- * @version   1.0.5
+ * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014 - 2021
+ * @version   1.0.6
  */
 
 namespace kartik\dialog;
 
+use Exception;
+use ReflectionException;
 use Yii;
 use kartik\base\Widget;
+use yii\base\InvalidConfigException;
 use yii\helpers\Json;
 use yii\web\View;
 
@@ -169,7 +172,7 @@ class Dialog extends Widget
      * @var boolean (DEPRECATED) applicable only for versions v1.0.3 and below, where if set to `true` 
      * will enable a draggable cursor for draggable dialog boxes when dragging.
      *
-     * for v1.0.5 and above the cursor will always be displayed irrespective of this setting 
+     * for v1.0.6 and above the cursor will always be displayed irrespective of this setting 
      * (which can be controlled via CSS).
      */
     public $showDraggable = true;
@@ -197,8 +200,8 @@ class Dialog extends Widget
 
     /**
      * @inheritdoc
-     * @throws \ReflectionException
-     * @throws \yii\base\InvalidConfigException
+     * @throws ReflectionException
+     * @throws InvalidConfigException
      */
     public function run()
     {
@@ -209,15 +212,15 @@ class Dialog extends Widget
 
     /**
      * Initialize the dialog buttons.
-     * @throws \yii\base\InvalidConfigException
+     * @throws InvalidConfigException|Exception
      */
     public function initOptions()
     {
-        $isBs4 = $this->isBs4();
-        $defaultBtnCss = $isBs4 ? 'btn-outline-secondary' : 'btn-default';
-        $this->iconOk = $isBs4 ? 'fas fa-check' : 'glyphicon glyphicon-ok';
-        $this->iconCancel = $isBs4 ? 'fas fa-ban' : 'glyphicon glyphicon-ban-circle';
-        $this->iconSpinner = $isBs4 ? 'fas fa-asterisk' : 'glyphicon glyphicon-asterisk';
+        $notBs3 = !$this->isBs(3);
+        $defaultBtnCss = $notBs3 ? 'btn-outline-secondary' : 'btn-default';
+        $this->iconOk = $notBs3 ? 'fas fa-check' : 'glyphicon glyphicon-ok';
+        $this->iconCancel = $notBs3 ? 'fas fa-ban' : 'glyphicon glyphicon-ban-circle';
+        $this->iconSpinner = $notBs3 ? 'fas fa-asterisk' : 'glyphicon glyphicon-asterisk';
         $ok = Yii::t('kvdialog', 'Ok');
         $cancel = Yii::t('kvdialog', 'Cancel');
         $info = Yii::t('kvdialog', 'Information');

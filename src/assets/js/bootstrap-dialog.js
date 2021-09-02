@@ -1,23 +1,20 @@
-/* global define */
-
-/* ================================================
+/**
+ * @package   yii2-dialog
+ * @author    Kartik Visweswaran <kartikv2@gmail.com>
+ * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014 - 2018
+ * @version   1.0.6
+ *
  * Make use of Bootstrap's modal more monkey-friendly.
+ * Sourced from: https://github.com/nakupanda/bootstrap3-dialog
  *
- * For Bootstrap 3.
- * javanoob@hotmail.com
- *
- * Modifications by Kartik Visweswaran, Krajee.com
- * For Bootstrap 4.x support. 
- * 
- * https://github.com/nakupanda/bootstrap3-dialog
- *
- * Licensed under The MIT License.
- * ================================================ */
+ * Modifications to library by Kartik Visweswaran, Krajee.com
+ * For yii2-dialog v1.0.6 - adds Bootstrap 4.x & 5.x support.
+ */
 (function (root, factory) {
 
     "use strict";
 
-    // CommonJS module is defined
+    // CommonJS module is definedc
     if (typeof module !== 'undefined' && module.exports) {
         module.exports = factory(require('jquery'), require('bootstrap'));
     }
@@ -40,24 +37,26 @@
      * Extend Bootstrap Modal and override some functions.
      * BootstrapDialogModal === Modified Modal.
      * ================================================ */
-    var Modal = $.fn.modal.Constructor;
+    var bsModal = $.fn.modal ? $.fn.modal.Constructor : (bootstrap ? bootstrap.Modal : {});
     var BootstrapDialogModal = function (element, options) {
-        if (/4\.1\.\d+/.test($.fn.modal.Constructor.VERSION)) { //FIXME for BootstrapV4
-            return new Modal(element, options);
+        if (/4\.\d+\.\d+/.test(bsModal.VERSION) || /5\.\d+\.\d+/.test(bsModal.VERSION)) { //FIXME for BootstrapV4 & 5
+            return new bsModal(element, options);
         } else {
-            Modal.call(this, element, options);
+            bsModal.call(this, element, options);
         }
     };
     BootstrapDialogModal.getModalVersion = function () {
         var version = null;
-        if (typeof $.fn.modal.Constructor.VERSION === 'undefined') {
+        if (typeof bsModal.VERSION === 'undefined') {
             version = 'v3.1';
-        } else if (/3\.2\.\d+/.test($.fn.modal.Constructor.VERSION)) {
+        } else if (/3\.2\.\d+/.test(bsModal.VERSION)) {
             version = 'v3.2';
-        } else if (/3\.3\.[1,2]/.test($.fn.modal.Constructor.VERSION)) {
+        } else if (/3\.3\.[1,2]/.test(bsModal.VERSION)) {
             version = 'v3.3';  // v3.3.1, v3.3.2
-        } else if (/4\.\d\.\d+/.test($.fn.modal.Constructor.VERSION)) { //FIXME for BootstrapV4
+        } else if (/4\.\d+\.\d+/.test(bsModal.VERSION)) { //FIXME for BootstrapV4
             version = 'v4.1';
+        } else if (/5\.\d+\.\d+/.test(bsModal.VERSION)) { //FIXME for BootstrapV5
+            version = 'v5.1';
         } else {
             version = 'v3.3.4';
         }
@@ -148,6 +147,7 @@
     };
     BootstrapDialogModal.METHODS_TO_OVERRIDE['v3.3.4'] = $.extend({}, BootstrapDialogModal.METHODS_TO_OVERRIDE['v3.3']);
     BootstrapDialogModal.METHODS_TO_OVERRIDE['v4.1'] = $.extend({}, BootstrapDialogModal.METHODS_TO_OVERRIDE['v3.3']); //FIXME for BootstrapV4
+    BootstrapDialogModal.METHODS_TO_OVERRIDE['v5.1'] = $.extend({}, BootstrapDialogModal.METHODS_TO_OVERRIDE['v4.1']); //FIXME for BootstrapV5
     BootstrapDialogModal.prototype = {
         constructor: BootstrapDialogModal,
         /**
@@ -168,7 +168,8 @@
     };
 
     // Add compatible methods.
-    BootstrapDialogModal.prototype = $.extend(BootstrapDialogModal.prototype, Modal.prototype, BootstrapDialogModal.METHODS_TO_OVERRIDE[BootstrapDialogModal.getModalVersion()]);
+    var modalPrototype = bsModal.prototype || null;
+    BootstrapDialogModal.prototype = $.extend(BootstrapDialogModal.prototype, modalPrototype, BootstrapDialogModal.METHODS_TO_OVERRIDE[BootstrapDialogModal.getModalVersion()]);
 
     /* ================================================
      * Definition of BootstrapDialog.
@@ -249,7 +250,7 @@
         closable: true,
         closeByBackdrop: true,
         closeByKeyboard: true,
-        closeIcon: '&#215;',
+        closeIcon: '&#10005;',
         spinicon: BootstrapDialog.ICON_SPINNER,
         autodestroy: true,
         draggable: false,
@@ -382,7 +383,7 @@
      * BEGIN: Fixes and enhancements for Bootstrap v4.x
      * By Kartik Visweswaran
      */
-    BootstrapDialog.METHODS_TO_OVERRIDE['v4.0'] = BootstrapDialog.METHODS_TO_OVERRIDE['v4.1'] = { 
+    BootstrapDialog.METHODS_TO_OVERRIDE['v4.0'] = BootstrapDialog.METHODS_TO_OVERRIDE['v4.1'] = BootstrapDialog.METHODS_TO_OVERRIDE['v5.1'] = {
         defaultButtonCss: 'btn-outline-secondary',
         getModalBackdrop: function ($modal) {
             return $($modal.data('bs.modal')._backdrop);
@@ -392,10 +393,6 @@
         open: BootstrapDialog.METHODS_TO_OVERRIDE['v3.1']['open'],
         getModalForBootstrapDialogModal: function () {
             return this.getModal().get(0);
-        },
-        createModalHeader: function () {
-            var css = this.getNamespace('header');
-            return $('<div class="modal-header ' + css + '"></div>');
         },
         createHeaderContent: function () {
             var $container = $('<div></div>');
@@ -481,7 +478,8 @@
             return this;
         },
         createModalHeader: function () {
-            return $('<div class="modal-header"></div>');
+            var css = this.getNamespace('header') + ' ' + this.getColor();
+            return $('<div class="modal-header ' + css + '"></div>');
         },
         getModalHeader: function () {
             return this.$modalHeader;
@@ -548,6 +546,9 @@
         },
         getId: function () {
             return this.options.id;
+        },
+        getColor: function () {
+            return this.getType().replace('type-', 'btn-');
         },
         getType: function () {
             return this.options.type;
@@ -833,9 +834,9 @@
             return $title;
         },
         createCloseButton: function () {
-            var $container = $('<div></div>');
+            var $container = $('<div></div>'), $icon;
             $container.addClass(this.getNamespace('close-button'));
-            var $icon = $('<button class="close" data-dismiss="modal" aria-label="close"></button>');
+            $icon = $('<button class="btn-modal-close btn ' + this.getColor() + '" data-dismiss="modal" data-bs-dismiss="modal" aria-label="close"></button>');
             $icon.append(this.options.closeIcon);
             $container.append($icon);
             $container.on('click', {dialog: this}, function (event) {

@@ -1,6 +1,14 @@
 Change Log: `yii2-dialog`
 =========================
 
+## Version 1.0.6
+
+**Date:** 02-Sep-2021
+
+- (enh #45): Enhancements to support Bootstrap v5.x.
+- (enh #44): Add Latvian Translations.
+- (enh #43): Add Uzbek Translations.
+
 ## Version 1.0.5
 
 **Date:** 09-Oct-2018

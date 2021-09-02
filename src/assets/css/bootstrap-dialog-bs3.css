@@ -1,18 +1,22 @@
 /*!
  * @package   yii2-dialog
  * @author    Kartik Visweswaran <kartikv2@gmail.com>
- * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014 - 2018
- * @version   1.0.5
+ * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014 - 2021
+ * @version   1.0.6
  *
  * Bootstrap 3.x styling for bootstrap-dialog plugin.
  *
  * For more JQuery plugins visit http://plugins.krajee.com
  * For more Yii related demos visit http://demos.krajee.com
- */.bootstrap-dialog {
-}
+ */
 .bootstrap-dialog .modal-header {
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
+}
+.bootstrap-dialog .btn-modal-close {
+    margin: -5px;
+    background: none;
+    border-radius: 50%;
 }
 .bootstrap-dialog .modal-header.bootstrap-dialog-draggable {
     cursor: move;
