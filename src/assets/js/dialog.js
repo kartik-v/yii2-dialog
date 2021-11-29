@@ -63,8 +63,8 @@ var KrajeeDialog;
             }
             opts = self.getOpts(type);
             opts.message = message;
+            opts.callback = callback;
             if (type === 'confirm') {
-                opts.callback = callback;
                 window.BootstrapDialog.confirm(opts);
             } else {
                 window.BootstrapDialog.show(opts);
